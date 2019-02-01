@@ -4,9 +4,10 @@ url = "https://pypi.org/simple"
 verify_ssl = true
 
 [dev-packages]
+ansible = "*"
+pyyaml = 4.2b1
 
 [packages]
-ansible = "*"
 
 [requires]
-python_version = "3.7"
+python_version = "3.6"
