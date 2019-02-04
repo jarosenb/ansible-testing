@@ -25,7 +25,7 @@ SECRET_KEY = 'xrd6sn69d=mn4mb$l2h*ct6b2ey#g-$iyr$w=ayiw1d5t)=u6k'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['jarosenb.net']
 
 
 # Application definition
