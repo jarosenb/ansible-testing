@@ -1,0 +1,19 @@
+version: '3'
+
+services:
+  proxy:
+    image: nginx:alpine
+    ports:
+      - 80:80
+      - 443:443
+    volumes:
+      - ./server/conf/nginx/default.conf:/etc/nginx/conf.d/default.conf
+      - ./client/dist/:/srv/www/client/dist/
+      - ./server/conf/ssl/jarosenb.test.crt:/etc/nginx/ssl/jarosenb.test.crt
+      - ./server/conf/ssl/jarosenb.test.key:/etc/nginx/ssl/jarosenb.test.key
+    
+    container_name: "jar_nginx"
+    
+    
+  
+    
