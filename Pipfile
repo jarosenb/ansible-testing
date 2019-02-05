@@ -5,6 +5,7 @@ verify_ssl = true
 
 [dev-packages]
 ansible = "*"
+pylint = "*"
 
 [packages]
 django = "*"

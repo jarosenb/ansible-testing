@@ -1,6 +1,15 @@
 version: '3'
 
 services:
+  server:
+    build: .
+    ports: 
+      - 8000:8000
+    volumes: 
+      - .:/srv/www
+    container_name: "jar_server"
+    command: python3 /srv/www/server/manage.py runserver 0.0.0.0:8000
+    
   proxy:
     image: nginx:alpine
     ports:

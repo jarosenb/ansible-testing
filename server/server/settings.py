@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/2.1/ref/settings/
 """
 
 import os
+from server import settings_secret
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -20,13 +21,14 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'xrd6sn69d=mn4mb$l2h*ct6b2ey#g-$iyr$w=ayiw1d5t)=u6k'
+SECRET_KEY = settings_secret._SECRET_KEY
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = settings_secret._DEBUG
 
-ALLOWED_HOSTS = ['jarosenb.net']
-
+ALLOWED_HOSTS = settings_secret._ALLOWED_HOSTS
+USE_X_FORWARDED_HOST = settings_secret._USE_X_FORWARDED_HOST
+FORCE_SCRIPT_NAME = settings_secret._FORCE_SCRIPT_NAME
 
 # Application definition
 
