@@ -16,6 +16,7 @@ channels = "*"
 django-celery-results = "*"
 redis = "*"
 ipython = "*"
+channels-redis = "*"
 
 [requires]
 python_version = "3.6"

@@ -27,13 +27,14 @@ SECRET_KEY = settings_secret._SECRET_KEY
 DEBUG = settings_secret._DEBUG
 
 ALLOWED_HOSTS = settings_secret._ALLOWED_HOSTS
-USE_X_FORWARDED_HOST = settings_secret._USE_X_FORWARDED_HOST
+#USE_X_FORWARDED_HOST = settings_secret._USE_X_FORWARDED_HOST
 FORCE_SCRIPT_NAME = settings_secret._FORCE_SCRIPT_NAME
 
 # Application definition
 
 INSTALLED_APPS = [
     'base.apps.BaseConfig',
+    'channels',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -72,7 +73,8 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'server.wsgi.application'
-
+# Channels
+ASGI_APPLICATION = 'server.routing.application'
 
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
