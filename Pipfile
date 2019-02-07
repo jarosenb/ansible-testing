@@ -11,6 +11,11 @@ pylint = "*"
 django = "*"
 psycopg2 = "*"
 uwsgi = "*"
+celery = "*"
+channels = "*"
+django-celery-results = "*"
+redis = "*"
+ipython = "*"
 
 [requires]
 python_version = "3.6"

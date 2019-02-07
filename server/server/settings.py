@@ -33,12 +33,14 @@ FORCE_SCRIPT_NAME = settings_secret._FORCE_SCRIPT_NAME
 # Application definition
 
 INSTALLED_APPS = [
+    'base.apps.BaseConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django_celery_results',
 ]
 
 MIDDLEWARE = [
@@ -86,6 +88,8 @@ DATABASES = {
     }
 }
 
+CELERY_RESULT_BACKEND = 'django-db'
+CELERY_BROKER_URL = settings_secret._CELERY_BROKER_URL
 
 # Password validation
 # https://docs.djangoproject.com/en/2.1/ref/settings/#auth-password-validators

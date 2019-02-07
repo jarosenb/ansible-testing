@@ -5,17 +5,32 @@ services:
     image: postgres:alpine
     environment:
       POSTGRES_PASSWORD: "password"
+  redis:
+    image: redis:alpine
 
   server:
     build: .
-    ports: 
-      - 8000:8000
+    image: jar_django
     volumes: 
       - .:/srv/www
+      - /srv/www/client/
     container_name: "jar_server"
     command: python3 /srv/www/server/manage.py runserver 0.0.0.0:8000
     depends_on: 
       - db
+      - redis
+
+  workers:
+    image: jar_django
+    volumes: 
+      - .:/srv/www
+      - /srv/www/client/
+    container_name: "jar_workers"
+    working_dir: /srv/www/server
+    command: celery -A server worker -l info
+    depends_on: 
+      - db
+      - redis
     
   proxy:
     image: nginx:alpine
